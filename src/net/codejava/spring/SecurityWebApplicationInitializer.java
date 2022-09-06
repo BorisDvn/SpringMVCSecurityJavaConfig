@@ -5,14 +5,12 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 /**
  * Spring Web MVC Security Java Config Demo Project
  * Bootstraps Spring Security Filter.
- * 
- * @author www.codejava.net
  *
+ * @author www.codejava.net
  */
 public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
-
-	public SecurityWebApplicationInitializer() {
-		super(SecurityConfig.class);
-	}
+    public SecurityWebApplicationInitializer() {
+        super(SecurityConfig.class);
+    }
 
 }

@@ -10,29 +10,25 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 /**
  * Spring Web MVC Security Java Config Demo Project
  * Configures authentication and authorization for the application.
- * 
- * @author www.codejava.net
  *
+ * @author www.codejava.net
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
-            .inMemoryAuthentication()
+                .inMemoryAuthentication()
                 .withUser("admin").password("nimda").roles("ADMIN");
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-  
-      http.authorizeRequests()
-        .antMatchers("/").permitAll() 
-        .antMatchers("/admin**").access("hasRole('ADMIN')")
-        .and().formLogin();
-      
-      http.csrf().disable();
-    }    
+        http.authorizeRequests()
+                .antMatchers("/*").access("hasRole('ADMIN')")
+                .and().formLogin();
+
+        http.csrf().disable();
+    }
 }

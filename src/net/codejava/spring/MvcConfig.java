@@ -8,14 +8,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * Spring Web MVC Security Java Config Demo Project
  * Configures Spring MVC stuffs.
- * 
- * @author www.codejava.net
  *
+ * @author www.codejava.net
  */
 @Configuration
 @ComponentScan("net.codejava.spring")
 public class MvcConfig {
-	
+
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
